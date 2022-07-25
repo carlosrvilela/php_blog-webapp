@@ -1,6 +1,6 @@
 <?php
 include 'src/Artigo.php';
-require 'bd-config.php';
+require_once 'bd-config.php';
 
 $obj_artigo = new Artigo($mysql);
 $artigo = $obj_artigo->encontrarPorId($_GET['id']);

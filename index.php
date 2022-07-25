@@ -1,6 +1,6 @@
 <?php
 include 'src/Artigo.php';
-require 'bd-config.php';
+require_once 'bd-config.php';
 
 $artigo = new Artigo($mysql);
 $artigos = $artigo->exibirTodos();

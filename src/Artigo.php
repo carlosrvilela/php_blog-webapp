@@ -1,5 +1,4 @@
 <?php
-require 'bd-config.php';
 class Artigo
 {
     private $mysql;
@@ -22,5 +21,19 @@ class Artigo
         $selecionaArtigo->execute();
         $artigo = $selecionaArtigo->get_result()->fetch_assoc();
         return $artigo;
+    }
+
+    public function adicionar(string $titulo, string $conteudo): void
+    {
+        $insereArtigo = $this->mysql->prepare('INSERT INTO artigos (titulo, conteudo) VALUES(?,?);');
+        $insereArtigo->bind_param('ss', $titulo, $conteudo);
+        $insereArtigo->execute();
+    }
+
+    public function remover(int $id): void
+    {
+        $removerArtigo = $this->mysql->prepare('DELETE FROM artigos WHERE id=?');
+        $removerArtigo->bind_param('s', $id);
+        $removerArtigo->execute();
     }
 }
