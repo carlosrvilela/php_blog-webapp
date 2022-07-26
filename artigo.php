@@ -22,7 +22,7 @@ $artigo = $obj_artigo->encontrarPorId($_GET['id']);
             <?php print $artigo['titulo'] ?>
         </h1>
         <p>
-            <?php print $artigo['conteudo'] ?>
+            <?php print nl2br($artigo['conteudo']) ?>
         </p>
         <div>
             <a class="botao botao-block" href="index.php">Voltar</a>
